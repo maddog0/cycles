@@ -6,6 +6,7 @@ public class Rotate : MonoBehaviour
 {
     public Transform target;
     public int speed;
+    public int distance;
 
     // Update is called once per frame
     void Update()
@@ -15,7 +16,7 @@ public class Rotate : MonoBehaviour
 
         Quaternion current = transform.localRotation;
 
-        transform.localRotation = Quaternion.Slerp(current, rotation, Time.deltaTime);
+        transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / distance) * 20);
         transform.Translate(0, 0, speed*Time.deltaTime);
     }
 }
