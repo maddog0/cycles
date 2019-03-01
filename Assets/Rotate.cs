@@ -12,7 +12,7 @@ public class Rotate : MonoBehaviour
     void Update()
     {
         Vector3 relativePos = (target.position - transform.position);
-        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.back);
+        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
 
         Quaternion current = transform.localRotation;
 
