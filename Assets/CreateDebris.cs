@@ -19,7 +19,9 @@ public class CreateDebris : MonoBehaviour
         {
             Debug.Log("left mouse clicked");
 
-            Instantiate(debrisA, transform.position, transform.rotation);
+            Vector3 position = transform.position - transform.forward + Random.insideUnitSphere;
+
+            Instantiate(debrisA, position, transform.rotation);
         }
     }
 }
