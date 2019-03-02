@@ -7,11 +7,11 @@ public class Rotate : MonoBehaviour
     public Transform target;
     public int speed;
     public float distance;
-    float initialDistanceVelocity = -0.1f;
-    float finalDistanceVelocity = 1.0f;
+    float initialDistanceVelocity = -100.0f;
+    float finalDistanceVelocity = 100.0f;
     public float currentDistanceVelocity = 0.0f;
-    float distanceAccelerationRate = 0.1f;
-    float distanceDecelerationRate = 0.5f;
+    float distanceAccelerationRate = 0.01f;
+    float distanceDecelerationRate = 0.001f;
 
     // Update is called once per frame
     void Update()
