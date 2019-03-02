@@ -5,6 +5,7 @@ using UnityEngine;
 public class CreateDebris : MonoBehaviour
 {
     public GameObject debrisA;
+    public int randomness;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,8 @@ public class CreateDebris : MonoBehaviour
         {
             Debug.Log("left mouse clicked");
 
-            Vector3 position = transform.position - transform.forward + Random.insideUnitSphere;
+            Vector3 position = transform.position - transform.forward + Random.insideUnitSphere*randomness;
+            position.z = 0;
 
             Instantiate(debrisA, position, transform.rotation);
         }
