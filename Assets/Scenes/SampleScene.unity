@@ -295,13 +295,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1223727598}
   - component: {fileID: 1223727597}
+  - component: {fileID: 1223727599}
   m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!120 &1223727597
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -404,13 +405,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223727596}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3358711, y: 0.7755517, z: 0.24231333}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 4.4488964, y: 0.48462677, z: -2.6717424}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1864641540}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223727599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223727596}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e104deb0df64684fb73a82a3be8a0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trajLength: 5
+  trajectory: {fileID: 1223727597}
+  rotate: {fileID: 1864641541}
 --- !u!1 &1830642891
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +584,8 @@ Transform:
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1223727598}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
@@ -587,6 +604,7 @@ MonoBehaviour:
   target: {fileID: 798840927}
   speed: 3
   distance: 3
+  initialDistanceVelocity: -100
+  finalDistanceVelocity: 100
   currentDistanceVelocity: 0
-  trajLength: 50
-  trajectory: {fileID: 1223727597}
+  distanceDecelerationRate: 0.001
