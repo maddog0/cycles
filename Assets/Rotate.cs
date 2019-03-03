@@ -43,7 +43,11 @@ public class Rotate : MonoBehaviour
         transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / (distance + 40)) * speed * 20);
 
         transform.Translate(0, 0, speed*Time.deltaTime);
-
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("GAME OVER MAN");
     }
 }
