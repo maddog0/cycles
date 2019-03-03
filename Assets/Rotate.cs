@@ -29,9 +29,9 @@ public class Rotate : MonoBehaviour
         currentDistanceVelocity = Mathf.Clamp(currentDistanceVelocity, initialDistanceVelocity, finalDistanceVelocity);
 
         distance += currentDistanceVelocity;
-        if (distance < 0)
+        if (distance < transform.lossyScale.x)
         {
-            distance = 0;
+            distance = transform.lossyScale.x;
         }
 
         //Orbit function
@@ -40,7 +40,7 @@ public class Rotate : MonoBehaviour
 
         Quaternion current = transform.localRotation;
 
-        transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / (distance + 40)) * speed * 20);
+        transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / (distance * 4)) * speed * 5);
 
         transform.Translate(0, 0, speed*Time.deltaTime);
         
