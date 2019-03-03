@@ -40,7 +40,7 @@ public class Rotate : MonoBehaviour
 
         Quaternion current = transform.localRotation;
 
-        transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / (distance * 2)) * speed * 5);
+        transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / (distance * 4)) * speed * 5);
 
         transform.Translate(0, 0, speed*Time.deltaTime);
         
