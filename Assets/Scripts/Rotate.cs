@@ -53,10 +53,20 @@ public class Rotate : MonoBehaviour
         transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / (distance * 4)) * speed * rotationSpeed);
 
         transform.Translate(0, 0, speed*Time.deltaTime);
+
+        if (transform.position.magnitude > 100)
+        {
+            gameOver();
+        }
         
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        gameOver();
+    }
+
+    private void gameOver()
     {
         Time.timeScale = 0;
         showPanels.ShowGameOverPanel();
