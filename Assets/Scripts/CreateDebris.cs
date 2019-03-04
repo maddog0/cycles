@@ -8,18 +8,25 @@ public class CreateDebris : MonoBehaviour
     public int randomness=1;
     public int spanws=2;
 
-    // Start is called before the first frame update
-    void Start()
+    private GameObject menu;
+    private Pause pause;
+    private StartOptions startScript;
+
+    // Awake is called before Start()
+    void Awake()
     {
-        
+        menu = GameObject.Find("Menu UI");
+        pause = menu.GetComponent<Pause>();
+        startScript = menu.GetComponent<StartOptions>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !startScript.inMainMenu && !pause.checkPaused())
         {
-            for (int i = 0;i<spanws;i++)
+            for (int i = 0; i < spanws; i++)
             {
                 Debug.Log("left mouse clicked");
 

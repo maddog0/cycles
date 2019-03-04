@@ -13,9 +13,14 @@ public class Rotate : MonoBehaviour
     float distanceAccelerationRate = 0.01f;
     public float distanceDecelerationRate = 0.001f;
 
-    private void Start()
-    {
+    private ShowPanels showPanels;
+    private GameObject menu;
 
+
+    private void Awake()
+    {
+        menu = GameObject.Find("Menu UI");
+        showPanels = menu.GetComponent<ShowPanels>();
     }
 
     // Update is called once per frame
@@ -53,6 +58,7 @@ public class Rotate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("GAME OVER MAN");
+        Time.timeScale = 0;
+        showPanels.ShowGameOverPanel();
     }
 }

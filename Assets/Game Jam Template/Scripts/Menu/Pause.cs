@@ -69,5 +69,10 @@ public class Pause : MonoBehaviour {
 
     }
 
+    public bool checkPaused()
+    {
+        return isPaused;
+    }
+
 
 }

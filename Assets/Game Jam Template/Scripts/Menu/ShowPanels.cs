@@ -8,6 +8,7 @@ public class ShowPanels : MonoBehaviour {
 	public GameObject optionsTint;							//Store a reference to the Game Object OptionsTint 
 	public GameObject menuPanel;							//Store a reference to the Game Object MenuPanel 
 	public GameObject pausePanel;                           //Store a reference to the Game Object PausePanel 
+    public GameObject GameOverPanel;                        //Store a reference to the Game Object GameOverPanel
 
     private GameObject activePanel;                         
     private MenuObject activePanelMenuObject;
@@ -78,4 +79,12 @@ public class ShowPanels : MonoBehaviour {
 		optionsTint.SetActive(false);
 
 	}
+
+    //Call this to activate and display the Game Over Panel during game play
+    public void ShowGameOverPanel()
+    {
+        GameOverPanel.SetActive(true);
+        optionsTint.SetActive(true);
+        SetSelection(GameOverPanel);
+    }
 }
