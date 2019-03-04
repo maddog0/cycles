@@ -21,6 +21,7 @@ public class Rotate : MonoBehaviour
     {
         menu = GameObject.Find("Menu UI");
         showPanels = menu.GetComponent<ShowPanels>();
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
