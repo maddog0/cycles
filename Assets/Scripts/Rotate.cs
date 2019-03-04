@@ -9,6 +9,8 @@ public class Rotate : MonoBehaviour
     public float distance;
     public float distanceAccelerationRate = 0.01f;
     public float distanceDecelerationRate = 0.001f;
+    float direction;
+    float rotationSpeed;
 
     private ShowPanels showPanels;
     private GameObject menu;
@@ -32,19 +34,23 @@ public class Rotate : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !startScript.inMainMenu && !pause.checkPaused())
         {
             distance += distanceAccelerationRate;
+            direction = -1;
+            rotationSpeed = 100;
         }
         else
         {
             distance -= (distanceDecelerationRate * Time.deltaTime) / transform.position.sqrMagnitude;
+            direction = 1;
+            rotationSpeed = 5;
         }
 
         //Orbit function
         Vector3 relativePos = (target.position - transform.position);
-        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
+        Quaternion rotation = Quaternion.LookRotation(direction * relativePos, Vector3.forward);
 
         Quaternion current = transform.localRotation;
 
-        transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / (distance * 4)) * speed * 5);
+        transform.localRotation = Quaternion.Slerp(current, rotation, (Time.deltaTime / (distance * 4)) * speed * rotationSpeed);
 
         transform.Translate(0, 0, speed*Time.deltaTime);
         
