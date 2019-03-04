@@ -4947,8 +4947,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41487685, y: 0.7621133}
   m_AnchorMax: {x: 0.583, y: 0.8185472}
-  m_AnchoredPosition: {x: 0.4655838, y: -66.405}
-  m_SizeDelta: {x: 72.26628, y: 13.841522}
+  m_AnchoredPosition: {x: 100, y: -75}
+  m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8718802446101368297
 CanvasRenderer:
@@ -4994,11 +4994,21 @@ MonoBehaviour:
   m_Text: 'CREDITS
 
 
-    William Callanan
+    William Callanan (sbit)
 
-    Rachel Darling
+    Rachel Darling (queenspawn)
 
-    Tom Georgen'
+    Tom Georgen (tjgeorgen)
+
+
+    Music and Menu
+
+    Unity Game Jam Menu template
+
+
+    Planet Sprite
+
+    alpha_rats'
 --- !u!114 &6442141652090968563
 MonoBehaviour:
   m_ObjectHideFlags: 0
