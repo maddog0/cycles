@@ -4122,8 +4122,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11449250}
-        m_MethodName: Quit
+      - m_Target: {fileID: 11462810}
+        m_MethodName: DoPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
