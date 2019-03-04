@@ -5,8 +5,8 @@ using UnityEngine;
 public class CreateDebris : MonoBehaviour
 {
     public GameObject debrisA;
-    public int randomness;
-    public int spanws=5;
+    public int randomness=1;
+    public int spanws=2;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +23,17 @@ public class CreateDebris : MonoBehaviour
             {
                 Debug.Log("left mouse clicked");
 
-                Vector3 position = transform.position - transform.forward + Random.insideUnitSphere * randomness;
-                position.z = 0;
+                StartCoroutine("SpawnDebris");
 
-                Instantiate(debrisA, position, transform.rotation);
             }
         }
+    }
+    private IEnumerator SpawnDebris()
+    {
+        Vector3 position = transform.position - transform.up + Random.insideUnitSphere * randomness;
+        position.z = 0;
+
+        yield return new WaitForSeconds(1);
+        Instantiate(debrisA, position, transform.rotation);
     }
 }

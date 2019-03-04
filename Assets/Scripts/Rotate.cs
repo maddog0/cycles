@@ -13,6 +13,11 @@ public class Rotate : MonoBehaviour
     float distanceAccelerationRate = 0.01f;
     public float distanceDecelerationRate = 0.001f;
 
+    private void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
