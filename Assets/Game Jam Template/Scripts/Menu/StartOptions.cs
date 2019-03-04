@@ -128,6 +128,7 @@ public class StartOptions : MonoBehaviour {
 
         float elapsedTime = 0f;
         float totalDuration = menuSettingsData.menuFadeTime;
+        yield return null;
 
         while (elapsedTime < totalDuration)
         {
@@ -136,8 +137,8 @@ public class StartOptions : MonoBehaviour {
             canvasGroupToFadeAlpha.alpha = currentAlpha;
             yield return null;
         }
-
         HideDelayed();
+        canvasGroupToFadeAlpha.alpha = startAlpha;
         Debug.Log("Coroutine done. Game started in same scene! Put your game starting stuff here.");
     }
 
