@@ -7,42 +7,35 @@ public class Rotate : MonoBehaviour
     public Transform target;
     public int speed;
     public float distance;
-    public float initialDistanceVelocity = -100.0f;
-    public float finalDistanceVelocity = 100.0f;
-    public float currentDistanceVelocity = 0.0f;
-    float distanceAccelerationRate = 0.01f;
+    public float distanceAccelerationRate = 0.01f;
     public float distanceDecelerationRate = 0.001f;
 
     private ShowPanels showPanels;
     private GameObject menu;
+    private Pause pause;
+    private StartOptions startScript;
 
-
+    // Awake is called before Start()
     private void Awake()
     {
         menu = GameObject.Find("Menu UI");
+        pause = menu.GetComponent<Pause>();
+        startScript = menu.GetComponent<StartOptions>();
         showPanels = menu.GetComponent<ShowPanels>();
         Time.timeScale = 0;
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
         //Acceleration function
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0) && !startScript.inMainMenu && !pause.checkPaused())
         {
-            currentDistanceVelocity = currentDistanceVelocity + (distanceAccelerationRate * Time.deltaTime);
+            distance += distanceAccelerationRate;
         }
         else
         {
-            currentDistanceVelocity = currentDistanceVelocity - (distanceDecelerationRate * Time.deltaTime);
-        }
-
-        currentDistanceVelocity = Mathf.Clamp(currentDistanceVelocity, initialDistanceVelocity, finalDistanceVelocity);
-
-        distance += currentDistanceVelocity;
-        if (distance < transform.lossyScale.x)
-        {
-            distance = transform.lossyScale.x;
+            distance -= (distanceDecelerationRate * Time.deltaTime) / transform.position.sqrMagnitude;
         }
 
         //Orbit function
