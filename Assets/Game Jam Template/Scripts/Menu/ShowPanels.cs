@@ -9,6 +9,7 @@ public class ShowPanels : MonoBehaviour {
 	public GameObject menuPanel;							//Store a reference to the Game Object MenuPanel 
 	public GameObject pausePanel;                           //Store a reference to the Game Object PausePanel 
     public GameObject GameOverPanel;                        //Store a reference to the Game Object GameOverPanel
+    public GameObject InstructionsPanel;                    //Store a reference to the Game Object InstructionsPanel
 
     private GameObject activePanel;                         
     private MenuObject activePanelMenuObject;
@@ -86,5 +87,18 @@ public class ShowPanels : MonoBehaviour {
         GameOverPanel.SetActive(true);
         optionsTint.SetActive(true);
         SetSelection(GameOverPanel);
+    }
+
+    public void showInstructions()
+    {
+        InstructionsPanel.SetActive(true);
+        optionsTint.SetActive(true);
+        SetSelection(InstructionsPanel);
+    }
+
+    public void hideInstructionPanel()
+    {
+        InstructionsPanel.SetActive(false);
+        optionsTint.SetActive(false);
     }
 }
