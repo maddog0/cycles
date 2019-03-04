@@ -37,10 +37,10 @@ public class CreateDebris : MonoBehaviour
     }
     private IEnumerator SpawnDebris()
     {
-        Vector3 position = transform.position - transform.up + Random.insideUnitSphere * randomness;
+        Vector3 position = transform.position - transform.forward * 2;
         position.z = 0;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0);
         Instantiate(debrisA, position, transform.rotation);
     }
 }
